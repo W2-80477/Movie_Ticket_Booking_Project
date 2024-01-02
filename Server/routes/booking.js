@@ -5,16 +5,16 @@ const config = require('config');
 const app =  express.Router();
 
 var connectionDetails = {
-                          host: config.get("SERVER"),
-                          database: config.get("DATABASE"),
-                          user: config.get("USER"),
-                          password: config.get("PASSWORD"),
+                     host: config.get("SERVER"),
+                     database: config.get("DATABASE"),
+                     user: config.get("USER"),
+                     password: config.get("PASSWORD"),
                         }
 
 app.get("/", (request, response)=>{
     var connection = mysql.createConnection(connectionDetails);
 
-    var statement = "select * from movies";
+    var statement = "select * from booking";
 
     connection.query(statement, (error, result)=>{
         if(error==null)
@@ -37,15 +37,15 @@ app.get("/", (request, response)=>{
 app.post("/", (request, response)=>{
     var connection = mysql.createConnection(connectionDetails);
 
-    var id = request.body.movie_id;
-    var title = request.body.title;
-    var description = request.body.description;
-    var duration =request.body.duration;
-    var language = request.body.language;
-    var releaseDate = request.body.release_date;
+    var id = request.body.booking_id;
+    var noOfSeats = request.body.number_of_seats;
+    var timestampB = request.body.timestamp;
+    var userId = request.body.user_id;
+    var showId = request.body.show_id;
+    
     
     var statement = 
-        `insert into movies values(${id}, '${title}','${description}','${duration}','${language}','${releaseDate}')`;
+        `insert into booking values(${id}, ${noOfSeats},'${timestampB}',${userId},${showId})`;
 
     connection.query(statement, (error, result)=>{
         if(error==null)
@@ -65,20 +65,19 @@ app.post("/", (request, response)=>{
     })
 });
 
-app.put("/:movie_id", (request, response)=>{
+app.put("/:booking_id", (request, response)=>{
     var connection = mysql.createConnection(connectionDetails);
 
-  
-    var id = request.body.movie_id;
-    var title = request.body.title;
-    var description = request.body.description;
-    var duration =request.body.duration;
-    var language = request.body.language;
-    var releaseDate = request.body.release_date;
-    
+    var id = request.params.booking_id;
+    var noOfSeats = request.body.number_of_seats;
+    var timestampB = request.body.timestamp;
+    var userId = request.body.user_id;
+    var showId = request.body.show_id;
+
 
     var statement = 
-        `update movies set title='${title}',description='${description}',duration='${duration}',language='${language}',release_date='${releaseDate}' where movie_id =${id}`;
+        `update booking set number_of_seats ='${noOfSeats}',timestamp='${timestampB}',user_id=${userId},show_id=${showId} where booking_id=${id}`;
+    console.log(statement);
 
     connection.query(statement, (error, result)=>{
         if(error==null)
@@ -97,13 +96,13 @@ app.put("/:movie_id", (request, response)=>{
         }
     })
 });
-app.delete("/:movie_id", (request, response)=>{
+app.delete("/:booking_id", (request, response)=>{
     var connection = mysql.createConnection(connectionDetails);
 
-    var id = request.params.movie_id;//This data belongs to header part 
+    var id = request.params.booking_id;//This data belongs to header part 
   
     var statement = 
-        `delete from movies where movie_id =${id}`;
+        `delete from booking where booking_id =${id}`;
 
     connection.query(statement, (error, result)=>{
         if(error==null)

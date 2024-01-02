@@ -11,6 +11,8 @@ const loginRoutesHandler = require('./routes/login');
 const screensRouteHandlerApp= require('./routes/screens');
 const moviesRouteHandlerApp = require('./routes/movies');
 const theatreRouteHandlerApp = require('./routes/theatre');
+const bookingRouteHandlerApp = require('./routes/booking');
+const showSeatRouteHandlerApp = require('./routes/showSeat');
 
 
 app.use(cors());
@@ -21,6 +23,8 @@ app.use("/login", loginRoutesHandler);
 app.use("/screens", screensRouteHandlerApp);
 app.use("/movies",moviesRouteHandlerApp);
 app.use("/theatre",theatreRouteHandlerApp);
+app.use("/booking",bookingRouteHandlerApp);
+app.use("/showSeat",showSeatRouteHandlerApp);
 
 
 app.listen(PORT, () => console.log("server started at port " + PORT))

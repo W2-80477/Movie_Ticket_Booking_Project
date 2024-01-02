@@ -1,7 +1,7 @@
 {
     "PORT": 3000,
     "SERVER": "localhost",
-    "DATABASE": "Movie",
+    "DATABASE": "project",
     "USER": "root",
     "PASSWORD": "manager"
 }

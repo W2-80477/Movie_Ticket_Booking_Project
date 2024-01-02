@@ -1,14 +1,14 @@
-const mysql = require('mysql2');
+const mysql = require('mysql');
 const express = require('express');
 const config = require('config');
 
 const app =  express.Router();
 
 var connectionDetails = {
-                            host: config.get("server"),
-                            database: config.get("database"),
-                            user: config.get("user"),
-                            password: config.get("password")
+                        host: config.get("SERVER"),
+                        database: config.get("DATABASE"),
+                        user: config.get("USER"),
+                        password: config.get("PASSWORD")
                         }
 
 app.get("/", (request, response)=>{
