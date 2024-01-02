@@ -8,6 +8,9 @@ const app = express();
 
 const usersRoutesHandler = require('./routes/user');
 const loginRoutesHandler = require('./routes/login');
+const screensRouteHandlerApp= require('./routes/screens');
+const moviesRouteHandlerApp = require('./routes/movies');
+const theatreRouteHandlerApp = require('./routes/theatre');
 
 
 app.use(cors());
@@ -15,6 +18,9 @@ app.use(express.json());
 
 app.use("/user", usersRoutesHandler);
 app.use("/login", loginRoutesHandler);
+app.use("/screens", screensRouteHandlerApp);
+app.use("/movies",moviesRouteHandlerApp);
+app.use("/theatre",theatreRouteHandlerApp);
 
 
 app.listen(PORT, () => console.log("server started at port " + PORT))
