@@ -16,7 +16,7 @@ role ENUM('admin', 'user')
 INSERT INTO users VALUES(DEFAULT, "Rani", "Ingle", "1999-09-15", "1234567890", "rani@gmail.com", "rani@123", "user");
 INSERT INTO users VALUES(DEFAULT, "Pravin", "Bawne", "1995-09-15", "7654567890","pravin@gmail.com", "pravin@123", "user");
 INSERT INTO users VALUES(DEFAULT, "Apurva", "Roy", "1997-11-22", "8234567890","apurva@gmail.com", "apurva@123", "user");
-INSERT INTO users VALUES(DEFAULT, "Satyam", "Kumar", "1999-19-25", "5657567845","satyam@gmail.com", "satyam@123", "user");
+INSERT INTO users VALUES(DEFAULT, "Satyam", "Kumar", "1999-10-25", "5657567845","satyam@gmail.com", "satyam@123", "user");
 INSERT INTO users VALUES(DEFAULT, "Ankit", "Sinha", "1998-06-18", "7654563465","ankit@gmail.com", "ankit@123", "user");
 
 SELECT * FROM users;
