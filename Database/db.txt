@@ -146,8 +146,7 @@ FOREIGN KEY(show_id) REFERENCES shows(show_id),
 FOREIGN KEY(booking_id) REFERENCES booking(booking_id)
 );
 
-INSERT INTO show_seat VALUES(DEFAULT,2,'200.0',1,1,2);
-INSERT INTO show_seat VALUES(DEFAULT,3,'200.0',2,2,3);
+INSERT INTO show_seat VALUES(DEFAULT,6,1,'200.0',1,7,77);
 
 select * from show_seat;
 ---------------------------------------------------------------------------------------------------------------------------------------------
