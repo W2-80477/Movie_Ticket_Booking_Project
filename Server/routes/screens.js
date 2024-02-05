@@ -96,7 +96,7 @@ app.put("/:screen_id", (request, response)=>{
 app.delete("/:screen_id", (request, response)=>{
     var connection = mysql.createConnection(connectionDetails);
 
-    var id = request.params.screen_id;//This data belongs to header part 
+    var id = request.params.screen_id;
   
     var statement = 
         `delete from screens where screen_id =${id}`;

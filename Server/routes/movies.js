@@ -100,7 +100,7 @@ app.put("/:movie_id", (request, response)=>{
 app.delete("/:movie_id", (request, response)=>{
     var connection = mysql.createConnection(connectionDetails);
 
-    var id = request.params.movie_id;//This data belongs to header part 
+    var id = request.params.movie_id;
   
     var statement = 
         `delete from movies where movie_id =${id}`;

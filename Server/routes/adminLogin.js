@@ -11,7 +11,7 @@ const connectionDetails = {
     password: config.get("PASSWORD"),
 }
 
-//console.log(confi);
+
 app.get("/", (request, response) => {
     response.write("GET request for Login received.")
     response.end();
