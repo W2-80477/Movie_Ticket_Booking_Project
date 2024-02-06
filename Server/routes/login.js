@@ -31,7 +31,7 @@ app.post("/", (request, response) => {
     console.log(password);
 
     const connection1 = mysql.createConnection(connectionDetails)
-    const statement1 = `select count(*) as count from users where email='${email}' and password='${password}'`;
+    const statement1 = `select * as from users where email_id='${email}' and password='${password}'`;
 
     console.log(statement1);
 
@@ -48,7 +48,7 @@ app.post("/", (request, response) => {
 
                 let connection2 = mysql.createConnection(connectionDetails);
 
-                let statement2 = `update users set token='${token}' where email='${email}'`;
+                let statement2 = `update users set token='${token}' where email_id='${email}'`;
 
                 console.log(statement2);
 
