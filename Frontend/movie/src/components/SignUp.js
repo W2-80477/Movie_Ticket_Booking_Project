@@ -31,7 +31,6 @@ if(!emailRegex.test(email)){
   return
 
 }
-
    // sending data to server we using fetch
    fetch("http://localhost:4000/user", { 
       method: "post",
