@@ -39,6 +39,7 @@ app.post("/", (request, response)=>{
 
     var id = request.body.show_seat_id;
     var theatreId = request.body.theatre_id;
+    var sta = request.body.status;
     var priceT = request.body.price;
     var showId = request.body.show_id;
     var bookingId = request.body.booking_id;
@@ -48,7 +49,7 @@ app.post("/", (request, response)=>{
     
     
     var statement = 
-        `insert into show_seat values(${id}, ${theatreId},${priceT},${showId},${bookingId},${seatNo})`;
+        `insert into show_seat values(${id}, ${theatreId},${sta},${priceT},${showId},${bookingId},${seatNo})`;
 
     connection.query(statement, (error, result)=>{
         if(error==null)
@@ -73,6 +74,7 @@ app.put("/:show_seat_id", (request, response)=>{
 
     var id = request.params.show_seat_id;
     var theatreId = request.body.theatre_id;
+    var sta = request.body.status;
     var priceT = request.body.price;
     var showId = request.body.show_id;
     var bookingId = request.body.booking_id;
@@ -81,7 +83,7 @@ app.put("/:show_seat_id", (request, response)=>{
 
 
     var statement = 
-        `update show_seat set theatre_id =${theatreId},price=${priceT},show_id=${showId},booking_id=${bookingId},seat_no=${seatNo} where show_seat_id=${id}`;
+        `update show_seat set theatre_id =${theatreId},status = ${sta},price=${priceT},show_id=${showId},booking_id=${bookingId},seat_no=${seatNo} where show_seat_id=${id}`;
     console.log(statement);
 
     connection.query(statement, (error, result)=>{

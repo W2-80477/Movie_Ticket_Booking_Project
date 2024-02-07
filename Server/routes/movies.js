@@ -69,7 +69,7 @@ app.put("/:movie_id", (request, response)=>{
     var connection = mysql.createConnection(connectionDetails);
 
   
-    var id = request.body.movie_id;
+    var id = request.params.movie_id;
     var title = request.body.title;
     var description = request.body.description;
     var duration =request.body.duration;
