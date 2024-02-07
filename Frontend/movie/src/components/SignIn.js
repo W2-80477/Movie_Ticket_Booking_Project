@@ -17,7 +17,7 @@ const postData=()=>{
      method:"post",
      headers:{"Content-Type" : "application/json"},
      body: JSON.stringify({
-      email:email,
+      email_id:email,
       password:password
      })
      }).then(res=>res.json())

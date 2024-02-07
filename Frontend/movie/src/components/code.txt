@@ -16,28 +16,21 @@ function SignUp() {
   const notifyError=(msg)=>toast.error(msg);
   const notifySuccess=(msg)=>toast.success(msg);
 
-// use Regex for valid email or password 
-const emailRegex= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-const passwordRegex=/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/;
 
+  const emailRegex= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  const passwordRegex=/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/;
 
- const postData=()=>{
-//  check Email
-if(!emailRegex.test(email)){
-  notifyError("Enter valid email");
-  return
-}else if(!passwordRegex.test(password)){
-  notifyError("Please Enter Strong Password, one lowercase letters, one uppercase letters, alphanumeric characters, one Special character #,@,?");
-  return
-
-}
-
-   // sending data to server we using fetch
-   fetch("http://localhost:4000/user", { 
-      method: "post",
-      headers: {
-        "Content-Type": "application/json"
-      },
+  const register =()=>{
+    if(!emailRegex.test(email)){
+      //  notifyError("Enter valid email")
+      return
+    }else if(!passwordRegex.test(password)){
+      // notifyError("please enter storng password")
+      return
+    }
+    fetch("http://localhost:4000/user",{
+      method:"post",
+      headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
         first_name:fname,
         last_name:lname,
@@ -46,28 +39,26 @@ if(!emailRegex.test(email)){
         email_id:email,
         password:password
       })
-    }).then(res =>{
-      // console.log(res.status)
-      // console.log(res.ok)
-      return  res.json()
-    })//return response callback function 
-      .then(data => {
-        if (data.error) {
-          notifyError(data.error) //show alert
-        } else {
-          notifySuccess(data.message)
-          navigate("/signin")
-        }
-        console.log(data)
-      })
+
+    }).then(res=>{
+      return res.json()
+    }).then(data=>{
+      if(data.error){
+        notifyError(data.error)
+      }else{
+        notifySuccess(data.error)
+        navigate("/signin")
+      }
+    })
+    
   }
 
-   
+
   return (
     <div className='signup'>
-    <div className='form-container'>
-    <div className='form'>
-    <img className='signuplogo' src={logo} alt='logo' />
+      <div className='form-container'>
+        <div className='form'>
+          <img className='signuplogo' src={logo} alt='logo' />
           <p className='para'> Registration Here</p>
           <div>
             <input type='text' name='fname' id='fname' placeholder='Enter Your First Name' value={fname} onChange={(e)=>{setFname(e.target.value)}} />
@@ -87,19 +78,22 @@ if(!emailRegex.test(email)){
           <div>
             <input type='password' name='password' id='password' placeholder='Enter Your password' value={password} onChange={(e)=>{setPassword(e.target.value)}} />
           </div>
-
-        <p className='loginPara' style={{fontSize: '14px' , margin: "3px 0px"}}>By signing up, you agree to out terms, <br />privacy policy and cookies policy.</p>
-        <input type="submit" id='submit-btn' value="Sign Up" onClick={()=>{postData()}} />
-        </div>
-        <div className='form2' >
-            Already have an account ? 
+          <div>
+            <p className='loginPara' style={{fontSize: '14px' , margin: "3px 0px"}}>By signing up, you agree to out terms, <br />privacy policy and cookies policy.</p>
+            <input type='submit'  id='signup' onClick={register()}/>
+          </div>
+          <div className='loginform'>
+            Already have an account ?
             <Link to='/signin'>
-            <span style={{color: 'yellow', cursor: 'pointer'}}>SignIn.</span>
+              <span style={{color: "red", cursor:"pointer"}}> SignIn</span>
             </Link>
-           
+
+          </div>
+
         </div>
 
-    </div>
+      </div>
+     
     </div>
   )
 }
