@@ -3,5 +3,6 @@
     "SERVER": "localhost",
     "DATABASE": "Movie",
     "USER": "root",
-    "PASSWORD": "manager"
+    "PASSWORD": "manager",
+    "jwtSecret": "mbsrar"
 }

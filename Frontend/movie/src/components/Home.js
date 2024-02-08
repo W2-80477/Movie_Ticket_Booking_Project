@@ -11,7 +11,7 @@ function Home() {
   return (
     <>
       <div className='carousel'>
-        <div id="carouselExampleIndicators" className="carousel slide">
+        <div id="carouselExampleIndicators" className="carousel_slide">
           <div className="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -47,8 +47,8 @@ function Home() {
             <div className="card h-100">
               <img src={hanuman} className="card-img-top" alt="hanuman" />
               <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <h5 className="card-title">Hanuman</h5>
+                <p className="card-text">Hanumanthu gets the powers of Hanuman in a distant village and fights for Anjanadri</p>
               </div>
             </div>
           </div>
@@ -57,8 +57,8 @@ function Home() {
             <div className="card h-100">
               <img src={animal} className="card-img-top" alt="animal" />
               <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This is a short card.</p>
+                <h5 className="card-title">Animal</h5>
+                <p className="card-text">The hardened son of a powerful industrialist returns home after years abroad and vows to take bloody revenge on those threatening his father's life.</p>
               </div>
             </div>
           </div>
@@ -66,8 +66,8 @@ function Home() {
             <div className="card h-100">
               <img src={salaar} className="card-img-top" alt="salaar" />
               <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This is a short card.</p>
+                <h5 className="card-title">Salaar</h5>
+                <p className="card-text">The fate of a violently contested kingdom hangs on the fraught bond between two friends-turned-foes in this saga of power, bloodshed and betrayal.</p>
               </div>
             </div>
           </div>

@@ -17,33 +17,6 @@ let connectionDetails={
 }
 
 
-app.get("/",(request,response) =>
-{
-    let connection=mysql.createConnection(connectionDetails);
-    let statement = "select * from users";
-    console.log(statement);
-    connection.query(statement,(error,result)=>
-    {
-        if(error==null)
-        {
-            response.setHeader("Content-Type","application/json");
-            response.write(JSON.stringify(result));
-            connection.end();
-            response.end();
-        }
-        else
-        {
-            response.setHeader("Content-Type","application/json");
-            response.write(JSON.stringify(error));
-            console.log(error);
-            connection.end();
-            response.end();
-        }
-    }
-    )
-}
-)
-
 app.post("/",(request,response) =>
 {
     let first_name=request.body.first_name;
@@ -78,69 +51,5 @@ app.post("/",(request,response) =>
 )
 
 
-
-app.put("/:id",(request,response) =>
-{
-    let id=request.params.id;
-    let first_name=request.body.first_name;
-    let last_name=request.body.last_name;
-    let email=request.body.email_id;
-    let password=request.body.password;
-    let mobile=request.body.mob_no;
-    let birth=request.body.date_of_birth;
-
-    let connection=mysql.createConnection(connectionDetails);
-    let statement = `update users set first_name='${first_name}',last_name='${last_name}',email_id='${email}',password='${password}',mob_no='${mobile}',date_of_birth='${birth}' where user_id=${id}`;
-    console.log(statement);
-    connection.query(statement,(error,result)=>
-    {
-        if(error==null)
-        {
-            response.setHeader("Content-Type","application/json");
-            response.write(JSON.stringify(result));
-            connection.end();
-            response.end();
-        }
-        else
-        {
-            response.setHeader("Content-Type","application/json");
-            response.write(JSON.stringify(error));
-            console.log(error);
-            connection.end();
-            response.end();
-        }
-    }
-    )
-}
-)
-
-
-app.delete("/:id",(request,response) =>
-{
-    let id=request.params.id;
-    let connection=mysql.createConnection(connectionDetails);
-    let statement = `delete from users where user_id= ${id}`;
-    console.log(statement);
-    connection.query(statement,(error,result)=>
-    {
-        if(error==null)
-        {
-            response.setHeader("Content-Type","application/json");
-            response.write(JSON.stringify(result));
-            connection.end();
-            response.end();
-        }
-        else
-        {
-            response.setHeader("Content-Type","application/json");
-            response.write(JSON.stringify(error));
-            
-            connection.end();
-            response.end();
-        }
-    }
-    )
-}
-)
 
 module.exports =app;

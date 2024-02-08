@@ -1,115 +1,53 @@
 const express = require('express');
 const mysql = require('mysql');
 const config = require('config');
-
+const jwt = require('jsonwebtoken');
 const app = express.Router();
 
-const connectionDetails = {
+const connectionDetails = mysql.createConnection( {
     host: config.get("SERVER"),
     database: config.get("DATABASE"),
     user: config.get("USER"),
     password: config.get("PASSWORD"),
-}
-
-
-app.get("/", (request, response) => {
-    response.write("GET request for Login received.")
-    response.end();
 })
 
-const GenerateToken = () => {
-    return Math.floor(Math.random() * 100000);
-}
 
-app.post("/", (request, response) => {
-    console.log(request.body);
 
-    const email = request.body.email;
-    const password = request.body.password;
+app.post('/', (req, res) => {
+    const { email, password } = req.body;
 
-    console.log(email);
-    console.log(password);
-
-    const connection1 = mysql.createConnection(connectionDetails)
-    const statement1 = `select * as from users where email_id='${email}' and password='${password}'`;
-
-    console.log(statement1);
-
-    connection1.query(statement1, (error, result) => {
-        if (error == null) {
-            console.log("query successfull.");
-            console.log(result);
-
-            let count = result[0].count;
-            if (count > 0) {
-                console.log("U r a valid user!");
-                var token = GenerateToken();
-                console.log(`generated token ${token} for ${email}`);
-
-                let connection2 = mysql.createConnection(connectionDetails);
-
-                let statement2 = `update users set token='${token}' where email_id='${email}'`;
-
-                console.log(statement2);
-
-                connection2.query(statement2,
-                    (error2, result2) => {
-                        if (error2 == null) {
-                            if (result2.affectedRows > 0) {
-                                let reply = {
-                                    token: token,
-                                    message: "success"
-                                };
-                                response.setHeader("Content-Type",
-                                    "application/json");
-                                response.write(JSON.stringify(reply));
-                                connection2.end();
-                                response.end();
-
-                            }
-                            else {
-                                let reply = {
-                                    message: "problem updating token in DB"
-                                };
-                                response.setHeader("Content-Type",
-                                    "application/json");
-                                response.write(JSON.stringify(reply));
-                                connection2.end();
-                                response.end();
-                            }
-                        }
-                        else {
-                            console.log(error2);
-                            response.setHeader("Content-Type",
-                                "application/json");
-                            response.write(JSON.stringify(error2));
-                            connection2.end();
-                            response.end();
-                        }
-                    });
-
+    connectionDetails.query(
+        'SELECT user_id, first_name, last_name, role FROM users WHERE email_id = ? AND password = ?',
+        [email, password],
+        (err, results) => {
+            if (err) {
+                console.error(err);
+                res.status(500).send('Internal Server Error');
+                return;
             }
-            else {
-                console.log("No user found!")
-                let reply = { message: "No Match Found" }
-                response.setHeader("Content-Type", "application/json");
 
-                response.write(JSON.stringify(reply));
-                connection1.end();
-                response.end();
+            if (results.length === 1) {
+                const user = results[0];
+
+                // Generate a JWT token
+                const token = jwt.sign({ user_id: user.user_id, role: user.role }, config.get('jwtSecret'), {
+                    expiresIn: '1h'  // Token expiration time, adjust as needed
+                });
+
+                // Return user details and token upon successful login
+                res.status(200).json({
+                    user_id: user.user_id,
+                    first_name: user.first_name,
+                    last_name: user.last_name,
+                    role : user.role,
+                    token: token
+                });
+            } else {
+                // Incorrect credentials
+                res.status(401).send('Invalid email or password');
             }
         }
-        else {
-            console.log(error);
-            console.log("query failed.");
-
-            response.setHeader("Content-Type", "application/json");
-            response.write(JSON.stringify(error));
-            connection1.end();
-            response.end();
-        }
-    })
-
-})
+    );
+});
 
 module.exports = app;
