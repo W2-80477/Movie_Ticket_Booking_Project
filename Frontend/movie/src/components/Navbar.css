@@ -1,10 +1,11 @@
 img{
-    width: 8%;
+    width: 120px;
     object-fit: contain;
-    padding: 1px;
+    padding: 2px;
 }
 
 .navbar{
+    height:80px;
     display: flex;
     justify-content: space-around;
     box-shadow: 1px 5px 5px #e0dcdc;
