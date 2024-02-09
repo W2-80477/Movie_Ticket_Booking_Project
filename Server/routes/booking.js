@@ -42,10 +42,10 @@ app.post("/", (request, response)=>{
     var timestampB = request.body.timestamp;
     var userId = request.body.user_id;
     var showId = request.body.show_id;
-    
+    var seatNo = request.body.seat_no;    
     
     var statement = 
-        `insert into booking values(${id}, ${noOfSeats},'${timestampB}',${userId},${showId})`;
+        `insert into booking values(${id}, ${noOfSeats},'${timestampB}',${userId},${showId},${seatNo})`;
 
     connection.query(statement, (error, result)=>{
         if(error==null)
@@ -73,10 +73,11 @@ app.put("/:booking_id", (request, response)=>{
     var timestampB = request.body.timestamp;
     var userId = request.body.user_id;
     var showId = request.body.show_id;
+    var seatNo = request.body.seat_no;    
 
 
     var statement = 
-        `update booking set number_of_seats ='${noOfSeats}',timestamp='${timestampB}',user_id=${userId},show_id=${showId} where booking_id=${id}`;
+        `update booking set number_of_seats ='${noOfSeats}',timestamp='${timestampB}',user_id=${userId},show_id=${showId},seat_no=${seatNo} where booking_id=${id}`;
     console.log(statement);
 
     connection.query(statement, (error, result)=>{

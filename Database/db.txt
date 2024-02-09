@@ -39,7 +39,6 @@ PRIMARY KEY(movie_id)
 );
 
 INSERT INTO movies VALUES(DEFAULT, 'Animal', 'Ranvijay "Vijay" Singh is the son of Balbir Singh, a Delhi-based business magnate who heads the generational steel company called "Swastik Steels".','02:02:12','Hindi','2022-01-02');
-
 INSERT INTO movies VALUES(DEFAULT, 'Guntur Karam', 'Follows Guntur Karam, the king of the underworld of Guntur city, as he falls in love with a journalist working to expose the illegal activities in the city.','02:12:02','Telugu','2020-01-02');
 
 SELECT * FROM movies;
@@ -58,6 +57,9 @@ INSERT INTO screens VALUES(DEFAULT, 'Audi-1', 'Available');
 INSERT INTO screens VALUES(DEFAULT, 'Audi-2', 'Available');
 INSERT INTO screens VALUES(DEFAULT, 'Audi-3', 'Available');
 INSERT INTO screens VALUES(DEFAULT, 'Audi-4', 'Available');
+
+ALTER TABLE screens ADD show_seat_id INT;
+ALTER TABLE screens ADD CONSTRAINT show_seat_id FOREIGN KEY (show_seat_id) REFERENCES show_seat(show_seat_id);
 
 SELECT * FROM screens;
 ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -124,12 +126,11 @@ FOREIGN KEY(show_id) REFERENCES shows(show_id)
 
 
 INSERT INTO booking VALUES(DEFAULT,100,'2024-01-01 12:30:00', 1, 1);
-
 INSERT INTO booking VALUES(DEFAULT,100,'2024-01-01 12:30:00', 2, 2);
-
 INSERT INTO booking VALUES(DEFAULT,100,'2024-01-01 12:30:00', 3, 3);
-
 INSERT INTO booking VALUES(DEFAULT,100,'2024-01-01 12:30:00', 4, 4);
+
+ALTER TABLE booking ADD seat_no INT;
 
 select * from booking;
 ---------------------------------------------------------------------------------------------------------------------------------------------

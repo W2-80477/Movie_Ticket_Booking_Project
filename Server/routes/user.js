@@ -46,7 +46,11 @@ app.post("/",(req,res) =>
         if(error==null)
         {
             res.setHeader("Content-Type","application/json");
-            res.write(JSON.stringify(result));
+            var responseMsg = {
+                "status" : "success",
+                "result" : result
+            }
+            res.write(JSON.stringify(responseMsg));
             connection.end();
             res.end();
         }
