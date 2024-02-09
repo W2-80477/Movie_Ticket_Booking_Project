@@ -2,6 +2,7 @@ const config=require('config');
 const mysql=require('mysql');
 const cors=require('cors');
 const express=require('express');
+const { error } = require('console');
 const app =  express.Router();
 
 
@@ -15,7 +16,24 @@ let connectionDetails={
     user: config.get("USER"),
     password: config.get("PASSWORD"),
 }
-
+app.get("/",(req,res)=>{
+    let connection=mysql.createConnection(connectionDetails);
+    let statement = 'select * from users';
+    connection.query(statement,(error,result)=>{
+        if(error == null){
+            res.setHeader("Content-Type", "application/json");
+            res.write(JSON.stringify(result));
+            connection.end();
+            res.end();
+        }else{
+            res.setHeader("Content-Type","application/json");
+            res.write(JSON.stringify(error));
+            console.log(error);
+            connection.end();
+            res.end();
+        }
+    })
+})
 
 app.post("/",(req,res) =>
 {
