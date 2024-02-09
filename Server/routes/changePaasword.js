@@ -1,10 +1,7 @@
 const express = require('express');
 const mysql = require("mysql");
 const config = require('config');
-const { error } = require('console');
 const app = express.Router();
-
-
 
 const connection = mysql.createConnection({
     host: config.get("SERVER"),
@@ -17,7 +14,7 @@ app.post("/", (req, res)=>{
       let {password, mob_no} = req.body;
 
       connection.query(
-        `select * from user where mob_no = ?`,[mob_no],(error,result)=>{
+        `select * from users where mob_no = ?`,[mob_no],(error,result)=>{
             if(error){
                 console.error(error)
                 return res.status(500).json({error: "Internal server error"})
@@ -30,7 +27,7 @@ app.post("/", (req, res)=>{
       )
       
       connection.query(
-        `update user set password = ? where mob_no = ? ` ,[password,mob_no],(error)=>{
+        `update users set password = ? where mob_no = ? ` ,[password,mob_no],(error)=>{
             if(error){
                 console.error(error)
                 return res.status(500).json({error: "Internal server error"})
@@ -40,3 +37,5 @@ app.post("/", (req, res)=>{
         }
       )
 })
+
+module.exports = app;
