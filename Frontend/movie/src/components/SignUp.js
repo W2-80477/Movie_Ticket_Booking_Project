@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import logo from "../Image/logo.jpg"
 import { Link, useNavigate} from 'react-router-dom';
 import { toast } from 'react-toastify';
+import "./signup.css"
 
 function SignUp() {
 

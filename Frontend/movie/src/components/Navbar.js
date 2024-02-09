@@ -7,9 +7,7 @@ import logo from "../Image/logo.jpg";
 function Navbar() {
   return (
     <div className='navbar'>
-       
         <img src={logo} alt='logo-movie'/>
-
         <ul className='nav-manu'>
         <Link to='/'><li>Home</li></Link>
         <Link to='/signup'><li>SignUp</li></Link>

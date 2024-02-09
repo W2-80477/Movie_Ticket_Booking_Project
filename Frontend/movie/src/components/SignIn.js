@@ -1,35 +1,54 @@
 import React,{useState} from 'react';
 import logo from '../Image/logo.jpg';
 import { Link, useNavigate } from "react-router-dom"
+import { toast } from 'react-toastify'; 
+import "./signin.css"
+
+
 
 function SignIn() {
 const navigate = useNavigate();
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 
+const notifyError=(msg)=>toast.error(msg);
+const notifySuccess=(msg)=>toast.success(msg);
 
 
-const postData=()=>{
-  if(""===email && ""=== password){
-    return
-  }
-     fetch("http://localhost:4000/login",{
-     method:"post",
-     headers:{"Content-Type" : "application/json"},
-     body: JSON.stringify({
-      email_id:email,
-      password:password
-     })
-     }).then(res=>res.json())
-     .then(data=>{
-      if(data.error){
-        console.log(data.error)
-      }else{
-        console.log(data.message)
-        navigate("/") 
+const postData = () => {
+  fetch("http://localhost:4000/login", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      email: email,
+      password: password
+    })
+  })
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
       }
-     })
-}
+      return res.json();
+    })
+    .then(data => {
+      console.log(data);
+
+      if (data.error) {
+        notifyError(data.error);
+      } else {
+        notifySuccess(data.message);
+        console.log(data);
+        localStorage.setItem("jwt", data.token);
+        navigate("/");
+      }
+    })
+    .catch(error => {
+      console.error("Error during fetch:", error);
+      notifyError("An error occurred during the login process.");
+    });
+};
 
 
 

@@ -8,6 +8,7 @@ const app = express();
 
 const usersRoutesHandler = require('./routes/user');
 const loginRoutesHandler = require('./routes/login');
+const forgotPassword = require('./routes/changePaasword')
 const adminLoginHandler = require("./routes/adminLogin");
 const screensRouteHandlerApp= require('./routes/screens');
 const moviesRouteHandlerApp = require('./routes/movies');
@@ -23,6 +24,7 @@ app.use(express.json());
 
 app.use("/user", usersRoutesHandler);
 app.use("/login", loginRoutesHandler);
+app.use("/forget", forgotPassword);
 app.use("/admin", adminLoginHandler);
 app.use("/screens", screensRouteHandlerApp);
 app.use("/movies",moviesRouteHandlerApp);

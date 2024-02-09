@@ -17,33 +17,28 @@ let connectionDetails={
 }
 
 
-app.post("/",(request,response) =>
+app.post("/",(req,res) =>
 {
-    let first_name=request.body.first_name;
-    let last_name=request.body.last_name;
-    let email=request.body.email_id;
-    let password=request.body.password;
-    let mobile=request.body.mob_no;
-    let birth=request.body.date_of_birth;
+    let {first_name,last_name, email_id, password, mob_no, date_of_birth} = req.body;
 
     let connection=mysql.createConnection(connectionDetails);
-    let statement = `insert into users(first_name,last_name,email_id,password,mob_no,date_of_birth) values ('${first_name}','${last_name}','${email}','${password}','${mobile}','${birth}')`;
+    let statement = `insert into users(first_name,last_name,email_id,password,mob_no,date_of_birth) values ('${first_name}','${last_name}','${email_id}','${password}','${mob_no}','${date_of_birth}')`;
     connection.query(statement,(error,result)=>
     {
         if(error==null)
         {
-            response.setHeader("Content-Type","application/json");
-            response.write(JSON.stringify(result));
+            res.setHeader("Content-Type","application/json");
+            res.write(JSON.stringify(result));
             connection.end();
-            response.end();
+            res.end();
         }
         else
         {
-            response.setHeader("Content-Type","application/json");
-            response.write(JSON.stringify(error));
+            res.setHeader("Content-Type","application/json");
+            res.write(JSON.stringify(error));
             console.log(error);
             connection.end();
-            response.end();
+            res.end();
         }
     }
     )

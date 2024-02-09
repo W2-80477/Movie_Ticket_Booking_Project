@@ -1,0 +1,44 @@
+.signin{
+    background-image: url('https://t3.ftcdn.net/jpg/06/01/32/90/240_F_601329032_fxU2OXkpBVt1dWmdElOOttEJd3rIaR8X.jpg');
+    background-size:contain;
+    flex: 8;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+.loginForm{
+    background-color: #fff;
+    padding: 30px;
+    border: 1px solid rgb(156, 23, 23);
+    border-radius: 1px;
+    background-color: rgb(158, 23, 30);
+}
+.loginform2{
+    background-color: rgb(156, 23, 23);
+    color: #f4720fb8;
+    padding: 25px;
+    margin-top: 5px;
+    border: 1px solid rgb(156, 23, 23);
+    border-radius: 1px;
+}
+.signInLogo{
+    width: 200px;
+  object-fit: contain;
+  padding: 10px 0px;
+}
+#login-btn{
+    background-color:#ea2c17a8;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    width: 80%;
+    cursor: pointer;
+    margin-top:10px ;
+}
+
+.loginForm>div{
+    width: 80%;
+    margin: auto;
+}

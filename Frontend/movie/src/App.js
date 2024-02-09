@@ -12,7 +12,6 @@ function App() {
   return (
     <>
        <BrowserRouter>
-       <div>
         <Navbar/>
         <Routes>
           <Route path="/" element = { <Home/> }/>
@@ -20,9 +19,8 @@ function App() {
           <Route path="/signin" element = { <SignIN/> } />
         </Routes>
         <ToastContainer theme="dark"/>
-        <Footer/>
-       </div>
        </BrowserRouter> 
+       <Footer/>
     </>
   );
 }
