@@ -1,14 +1,42 @@
-import React from 'react'
+import  React,{useEffect, useState} from 'react'
 import "./home.css"
-import hanuman from "../Image/hanuman.jpeg";
-import animal from "../Image/animal.jpeg";
-import salaar from "../Image/salaar.jpeg";
-import landscapeAnimal from "../Image/landscapeAnimal.jpeg";
-import landscapeHanuman from "../Image/landscapeHanuman.jpeg";
-import landscapeSalaar from "../Image/landscapeSalaar.jpeg";
+// import hanuman from "../Image/hanuman.jpeg";
+// import animal from "../Image/animal.jpeg";
+// import salaar from "../Image/salaar.jpeg";
+import landscapeAnimal from "./Image/landscapeAnimal.jpeg";
+import landscapeHanuman from "./Image/landscapeHanuman.jpeg";
+import landscapeSalaar from "./Image/landscapeSalaar.jpeg";
 import { Link } from "react-router-dom"
+import axios from "axios"
+
+import { Button, Box } from '@mui/material';
+import MovieItem from './movie/MovieItem';
 
 function Home() {
+const [movie, setMovie] = useState([]);
+const getAllMovies = async () => {
+  try {
+    const res = await axios.get("http://localhost:4000/movies");
+    console.log(res)
+    return res.data;
+  } catch (err) {
+    console.error("Error fetching movies:", err);
+    return { movies: [] };
+  }
+};
+
+useEffect(() => {
+  getAllMovies()
+    .then((data) => {
+      console.log(data); // Check the structure of the data
+      setMovie(data.movies);
+    })
+    .catch((err) => console.log(err));
+}, []);
+
+console.log(movie);
+
+
   return (
     <>
 <div id="carouselExampleIndicators" class="carousel slide" style={{height: '400px', overflow: 'hidden'}}>
@@ -37,41 +65,28 @@ function Home() {
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+<Box display="flex" width="80%" justifyContent="center" marginTop={0.5}>
+  {movie && movie.map((movie,index) => {
+    console.log(movie)
+     return <MovieItem 
+     key={index} 
+     id={movie.movie_id}
+     title={movie.title} 
+     releaseDate={movie.release_date} 
+     description={movie.description} 
+     duration={movie.duration} 
+     language={movie.language} />
 
+})}
+</Box>
+      <Box display={"flex"} padding={5} margin={"auto"}>
+        <Button LinkComponent={Link} to="/movie" variant='outlined' sx={{margin:"auto", color:"red"}} >
+         View All Movies
+        </Button>
+      
 
-  <div className='movie-card'>
-  <div className="row row-cols-1 row-cols-md-3 g-4 ">
-    <div className="col">
-      <div className="card h-100" style={{display: "flex", width: "300px"}}>
-        <Link to="/details" ><img src={hanuman} className="card-img-top img-fluid" alt="hanuman"  /></Link>
-        <div className="card-body">
-          <h5 className="card-title">Hanuman</h5>
-          <p className="card-text">Hanumanthu gets the powers of Hanuman in a distant village and fights for Anjanadri</p>
-        </div>
-      </div>
-    </div>
-
-    <div className="col">
-      <div className="card h-100" style={{display: "flex", width: "300px"}}>
-        <img src={animal} className="card-img-top img-fluid" alt="animal" />
-        <div className="card-body">
-          <h5 className="card-title">Animal</h5>
-          <p className="card-text">The hardened son of a powerful industrialist returns home after years abroad and vows to take bloody revenge on those threatening his father's life.</p>
-        </div>
-      </div>
-    </div>
-    <div className="col">
-      <div className="card h-100" style={{display: "flex", width: "300px"}}>
-        <img src={salaar} className="card-img-top img-fluid" alt="salaar" />
-        <div className="card-body">
-          <h5 className="card-title">Salaar</h5>
-          <p className="card-text">The fate of a violently contested kingdom hangs on the fraught bond between two friends-turned-foes in this saga of power, bloodshed and betrayal.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
+      </Box>
+  
     </>
 
 
