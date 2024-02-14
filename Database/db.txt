@@ -40,6 +40,9 @@ PRIMARY KEY(movie_id)
 
 INSERT INTO movies VALUES(DEFAULT, 'Animal', 'Ranvijay "Vijay" Singh is the son of Balbir Singh, a Delhi-based business magnate who heads the generational steel company called "Swastik Steels".','02:02:12','Hindi','2022-01-02');
 INSERT INTO movies VALUES(DEFAULT, 'Guntur Karam', 'Follows Guntur Karam, the king of the underworld of Guntur city, as he falls in love with a journalist working to expose the illegal activities in the city.','02:12:02','Telugu','2020-01-02');
+INSERT INTO movies VALUES(DEFAULT, '12th Fail', 'It is based on the 2019 eponymous non-fiction book by Anurag Pathak about Manoj Kumar Sharma, who overcame extreme poverty to become an Indian Police Service officer.','02:02:12','Hindi','2022-01-02','12thFail');
+
+ALTER TABLE movies ADD image VARCHAR(150);
 
 SELECT * FROM movies;
 ---------------------------------------------------------------------------------------------------------------------------------------------

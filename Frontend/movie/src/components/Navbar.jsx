@@ -1,10 +1,18 @@
 import React from 'react';
 import "./Navbar.css";
-import { Link } from 'react-router-dom' ;
-// import logo from "../Image/logo.jpg";
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+
 
 
 function Navbar() {
+  const location = useLocation();
+  let navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('jwt');
+    navigate("/signin")
+  };
+
   return (
     <>
  
@@ -30,24 +38,17 @@ function Navbar() {
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
         <button className="btn btn-outline-success" type="submit">Search</button>
       </form>
+      <div className="ml-2">
+              <button className="btn btn-danger" onClick={handleLogout}>
+                Logout
+              </button>
+            </div>
     </div>
   </div>
 </nav>
 
     </>
-    // <div classNameName='navbar'>
-    //     <img src={logo} alt='logo-movie'/>
-    //     <ul classNameName='nav-manu'>
-    //     <Link to='/'><li>Home</li></Link>
-    //     <Link to='/signup'><li>SignUp</li></Link>
-    //     <Link to='/signin'><li>Signin</li></Link>
-    //     </ul>
-    //     <form className="d-flex" role="search">
-    //     <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-    //     <button className="btn btn-outline-success" type="submit">Search</button>
-    //   </form>
-      
-    // </div>
+ 
   )
 }
 

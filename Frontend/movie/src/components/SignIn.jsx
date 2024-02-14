@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import logo from './Image/logo.jpg';
+
 import { Link, useNavigate } from "react-router-dom"
 import { toast } from 'react-toastify'; 
 import "./signin.css"
@@ -56,7 +56,7 @@ const postData = () => {
     <div className='signin'>
       <div className='from-container'>
         <div className='loginForm'>
-          <img className='signinLogo' src={logo} alt='logo' />
+          
           <div>
             <input type='email' 
             name='email' 

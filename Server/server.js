@@ -21,6 +21,7 @@ const paymentRouteHandlerApp = require('./routes/payment');
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static("uploads"))
 
 app.use("/user", usersRoutesHandler);
 app.use("/login", loginRoutesHandler);

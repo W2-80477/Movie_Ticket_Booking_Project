@@ -6,7 +6,7 @@ import SignIN from "./components/SignIn";
 import Footer  from "./components/Footer";
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Details from "./components/Details";
+
 
 
 
@@ -23,7 +23,6 @@ function App() {
         </Routes>
         <ToastContainer theme="dark"/>
        </BrowserRouter>
-       <Details/>
        <Footer/>
     </>
   );

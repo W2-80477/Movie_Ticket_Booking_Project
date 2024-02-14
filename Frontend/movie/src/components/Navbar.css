@@ -1,0 +1,47 @@
+/* Navbar Styles */
+.navbar {
+  background-color: #343a40; /* Navbar background color */
+}
+
+.navbar-brand {
+  color: #ffffff; /* Navbar brand color */
+  font-weight: bold;
+}
+
+.navbar-brand:hover {
+  color: #ffffff; /* Navbar brand color on hover */
+}
+
+.navbar-toggler-icon {
+  background-color: #ffffff; /* Navbar toggle icon color */
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff; /* Navbar link color */
+  margin-right: 15px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffffff; /* Navbar link color on hover */
+}
+
+/* Active Link Style */
+.nav-item.active .nav-link {
+  color: #28a745; /* Active link color */
+}
+
+/* Search Form Styling */
+.form-control {
+  margin-right: 10px;
+}
+
+.btn-outline-success {
+  color: #28a745; /* Search button text color */
+  border-color: #28a745; /* Search button border color */
+}
+
+.btn-outline-success:hover {
+  background-color: #28a745; /* Search button background color on hover */
+  color: #ffffff; /* Search button text color on hover */
+  border-color: #28a745; /* Search button border color on hover */
+}

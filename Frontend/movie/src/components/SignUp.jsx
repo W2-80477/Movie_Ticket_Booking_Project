@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import logo from "./Image/logo.jpg"
 import { Link, useNavigate} from 'react-router-dom';
 import { toast } from 'react-toastify';
 import "./signup.css"
@@ -67,7 +66,7 @@ if(!emailRegex.test(email)){
     <div className='signup'>
     <div className='form-container'>
     <div className='form'>
-    <img className='signuplogo' src={logo} alt='logo' />
+    {/* <img className='signuplogo' src={logo} alt='logo' /> */}
           <p className='para'> Registration Here</p>
           <div>
             <input type='text' name='fname' id='fname' placeholder='Enter Your First Name' value={fname} onChange={(e)=>{setFname(e.target.value)}} />
@@ -94,7 +93,7 @@ if(!emailRegex.test(email)){
         <div className='form2' >
             Already have an account ? 
             <Link to='/signin'>
-            <span style={{color: 'yellow', cursor: 'pointer'}}>SignIn.</span>
+            <span style={{color: 'blue', cursor: 'pointer'}}> SignIn.</span>
             </Link>
            
         </div>
