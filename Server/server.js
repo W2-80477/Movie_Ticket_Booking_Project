@@ -1,7 +1,7 @@
 const express = require('express');
 const config = require('config');
 const cors = require('cors');
-
+const path = require('path');
 const PORT = config.get("PORT");
 
 const app = express();
@@ -21,7 +21,9 @@ const paymentRouteHandlerApp = require('./routes/payment');
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static("uploads"))
+app.use(express.static("Images"));
+// app.use('/uploads', express.static(path.join(__dirname, 'Images')));
+
 
 app.use("/user", usersRoutesHandler);
 app.use("/login", loginRoutesHandler);
@@ -36,4 +38,4 @@ app.use("/shows",showsRouteHandlerApp);
 app.use("/payment",paymentRouteHandlerApp);
 
 
-app.listen(PORT, () => console.log("server started at port " + PORT))
+app.listen(PORT, () => console.log("server started at port " + PORT + __dirname))

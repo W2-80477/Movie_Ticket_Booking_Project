@@ -1,0 +1,81 @@
+.home{
+  background-color: rgb(226, 92, 19); /* Change background color to yellow */
+}
+/* Carousel Styles */
+#carouselExampleCaptions {
+    margin-top: 1px;
+  }
+  
+  .carousel-inner img {
+    height: 500px; /* Adjust the height as needed */
+    object-fit: cover;
+  }
+  
+  .carousel-caption {
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for captions */
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .carousel-caption h5 {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .carousel-caption p {
+    color: #ddd;
+  }
+  
+ /* Include the enhanced CSS code provided earlier */
+
+/* Additional styles for the cards */
+.card {
+  margin-top: 4px;
+  background-color: #f6e743;
+  border: 1px solid #0e0d0d;
+  transition: transform 0.3s ease;
+  margin-bottom: 5px;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Zoom in effect on hover */
+}
+
+.card-img-top {
+  height: 400px; /* Adjust the height as needed */
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-title {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.card-text {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* Ensure all cards are in one row */
+.row-cols-1.row-cols-md-4 {
+  flex-wrap: nowrap;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+/* Optional: Add a subtle border to the cards */
+.card {
+  border: 1px solid #ddd;
+}
+
+.card-with-fixed-height {
+  height: 400px;
+  
+}

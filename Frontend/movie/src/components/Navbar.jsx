@@ -1,11 +1,11 @@
 import React from 'react';
 import "./Navbar.css";
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
 function Navbar() {
-  const location = useLocation();
+ 
   let navigate = useNavigate();
 
   const handleLogout = () => {
