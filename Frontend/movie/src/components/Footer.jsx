@@ -5,7 +5,7 @@ import "./footer.css"
 function Footer() {
   return (
     <>
-       <div> 
+       <div className='footer'> 
         <div className="myfooter">
             <div className="footer-section">
                 <h3>Terms of Service</h3>

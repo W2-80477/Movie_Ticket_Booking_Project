@@ -17,7 +17,7 @@ app.get("/", (request, response)=>{
     var statement = "select * from movies";
 
     connection.query(statement, (error, result)=>{
-        if(error==null)
+        if(error !==null)
         {
             response.setHeader("Content-Type", "application/json");
             response.write(JSON.stringify(result));

@@ -7,6 +7,8 @@ import Footer  from "./components/Footer";
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import MovieDetails from "./components/MovieDetails";
+
 
 
 
@@ -20,6 +22,7 @@ function App() {
           <Route path="/" element = { <Home/> }/>
           <Route path="/signup" element = { <SignUp/> } />
           <Route path="/signin" element = { <SignIN/> } />
+          <Route path="/moviedetails/:id" element={<MovieDetails />} />
         </Routes>
         <ToastContainer theme="dark"/>
        </BrowserRouter>
