@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import MovieDetails from './components/MovieDetails';
+import Theaters from './components/Theaters';
 
 function App() {
   return (
@@ -19,9 +20,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
-          {/* <Route path="/moviedetails/:id" element={<MovieDetails />} /> */}
           <Route path="/moviedetails/:movie_id" element={<MovieDetails />} />
-
+          <Route path='/theaters' element={<Theaters/>}/>
         </Routes>
         <ToastContainer theme="dark" />
       </BrowserRouter>

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import "./moviedetails.css"
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 
 function MovieDetails() {
+
+  const navigate = useNavigate();
   const { movie_id } = useParams();
   const [movie, setMovie] = useState([]);
 
@@ -30,7 +32,13 @@ function MovieDetails() {
 
     return <div>Loading...</div>;
   }
-  console.log(movie);
+ 
+ const handleBookNow =()=>{
+    navigate("/theaters")
+ }
+
+
+
   return (
     <div className='moviedetails'>
       <div className="container mt-5 movie-container">
@@ -54,7 +62,7 @@ function MovieDetails() {
               <p>Language: {movie.language}</p>
               <p>Release Date: {movie.release_date}</p>
 
-              <button className="btn btn-primary btn-book-now">Book Now</button>
+              <button className="btn btn-primary btn-book-now" onClick={handleBookNow}>Book Now</button>
             </div>
           </div>
         </div>
