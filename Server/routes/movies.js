@@ -4,7 +4,7 @@ const config = require('config');
 
 const app =  express.Router();
 
-var connectionDetails = {
+let connectionDetails = {
                           host: config.get("SERVER"),
                           database: config.get("DATABASE"),
                           user: config.get("USER"),
@@ -12,12 +12,12 @@ var connectionDetails = {
                         }
 
 app.get("/", (request, response)=>{
-    var connection = mysql.createConnection(connectionDetails);
+    let connection = mysql.createConnection(connectionDetails);
 
-    var statement = "select * from movies";
+    let statement = "select * from movies";
 
     connection.query(statement, (error, result)=>{
-        if(error !==null)
+        if(error ==null)
         {
             response.setHeader("Content-Type", "application/json");
             response.write(JSON.stringify(result));
@@ -35,17 +35,12 @@ app.get("/", (request, response)=>{
 });
 
 app.post("/", (request, response)=>{
-    var connection = mysql.createConnection(connectionDetails);
+    let connection = mysql.createConnection(connectionDetails);
 
-    var id = request.body.movie_id;
-    var title = request.body.title;
-    var description = request.body.description;
-    var duration =request.body.duration;
-    var language = request.body.language;
-    var releaseDate = request.body.release_date;
+    let { movie_id, title, description, duration, language, release_date } = request.body;   
     
-    var statement = 
-        `insert into movies values(${id}, '${title}','${description}','${duration}','${language}','${releaseDate}')`;
+    let statement = 
+        `insert into movies values(${movie_id}, '${title}','${description}','${duration}','${language}','${release_date}')`;
 
     connection.query(statement, (error, result)=>{
         if(error==null)
@@ -66,19 +61,12 @@ app.post("/", (request, response)=>{
 });
 
 app.put("/:movie_id", (request, response)=>{
-    var connection = mysql.createConnection(connectionDetails);
-
+    let connection = mysql.createConnection(connectionDetails);
+   
+    let { movie_id, title, description, duration, language, release_date } = request.body;   
   
-    var id = request.params.movie_id;
-    var title = request.body.title;
-    var description = request.body.description;
-    var duration =request.body.duration;
-    var language = request.body.language;
-    var releaseDate = request.body.release_date;
-    
-
-    var statement = 
-        `update movies set title='${title}',description='${description}',duration='${duration}',language='${language}',release_date='${releaseDate}' where movie_id =${id}`;
+    let statement = 
+        `update movies set title='${title}',description='${description}',duration='${duration}',language='${language}',release_date='${release_date}' where movie_id =${movie_id}`;
 
     connection.query(statement, (error, result)=>{
         if(error==null)
@@ -98,11 +86,11 @@ app.put("/:movie_id", (request, response)=>{
     })
 });
 app.delete("/:movie_id", (request, response)=>{
-    var connection = mysql.createConnection(connectionDetails);
+    let connection = mysql.createConnection(connectionDetails);
 
-    var id = request.params.movie_id;
+    let id = request.params.movie_id;
   
-    var statement = 
+    let statement = 
         `delete from movies where movie_id =${id}`;
 
     connection.query(statement, (error, result)=>{

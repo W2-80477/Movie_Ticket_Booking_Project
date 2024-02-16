@@ -4,7 +4,7 @@ const config = require('config');
 
 const app =  express.Router();
 
-var connectionDetails = {
+let connectionDetails = {
                             host: config.get("SERVER"),
                             database: config.get("DATABASE"),
                             user: config.get("USER"),
@@ -12,9 +12,9 @@ var connectionDetails = {
                         }
 
 app.get("/", (request, response)=>{
-    var connection = mysql.createConnection(connectionDetails);
+    let connection = mysql.createConnection(connectionDetails);
 
-    var statement = "select * from payment";
+    let statement = "select * from payment";
 
     connection.query(statement, (error, result)=>{
         if(error==null)
@@ -35,19 +35,12 @@ app.get("/", (request, response)=>{
 });
 
 app.post("/", (request, response)=>{
-    var connection = mysql.createConnection(connectionDetails);
+    let connection = mysql.createConnection(connectionDetails);
 
-    var id = request.body.payment_id;
-    var showAmount = request.body.amount;
-    var dateTime = request.body.payment_date_time;
-    var paymentMethod =request.body.payment_method;
-    var userId = request.body.user_id;
-    var showId = request.body.show_id;
-    var paymentStatus = request.body.payment_status;
-    var bookingId = request.body.booking_id;
+    let { payment_id, amount, payment_date_time, payment_method, user_id, show_id, payment_status,booking_id } = request.body;   
     
-    var statement = 
-        `insert into payment values(${id}, '${showAmount}','${dateTime}','${paymentMethod}','${userId}','${showId}','${paymentStatus}','${bookingId}')`;
+    let statement = 
+        `insert into payment values(${payment_id}, '${amount}','${payment_date_time}','${payment_method}','${user_id}','${show_id}','${payment_status}','${booking_id}')`;
 
     connection.query(statement, (error, result)=>{
         if(error==null)
@@ -68,11 +61,11 @@ app.post("/", (request, response)=>{
 });
 
 app.delete("/:payment_id", (request, response)=>{
-    var connection = mysql.createConnection(connectionDetails);
+    let connection = mysql.createConnection(connectionDetails);
 
-    var id = request.params.payment_id;//This data belongs to header part 
+    let id = request.params.payment_id;//This data belongs to header part 
   
-    var statement = 
+    let statement = 
         `delete from payment where payment_id =${id}`;
 
     connection.query(statement, (error, result)=>{

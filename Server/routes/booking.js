@@ -12,9 +12,9 @@ var connectionDetails = {
                         }
 
 app.get("/", (request, response)=>{
-    var connection = mysql.createConnection(connectionDetails);
+    let connection = mysql.createConnection(connectionDetails);
 
-    var statement = "select * from booking";
+    let statement = "select * from booking";
 
     connection.query(statement, (error, result)=>{
         if(error==null)
@@ -35,17 +35,12 @@ app.get("/", (request, response)=>{
 });
 
 app.post("/", (request, response)=>{
-    var connection = mysql.createConnection(connectionDetails);
+    let connection = mysql.createConnection(connectionDetails);
 
-    var id = request.body.booking_id;
-    var noOfSeats = request.body.number_of_seats;
-    var timestampB = request.body.timestamp;
-    var userId = request.body.user_id;
-    var showId = request.body.show_id;
-    var seatNo = request.body.seat_no;    
+    let { booking_id, number_of_seats, timestamp, user_id, show_id } = request.body;   
     
-    var statement = 
-        `insert into booking values(${id}, ${noOfSeats},'${timestampB}',${userId},${showId},${seatNo})`;
+    let statement = 
+        `insert into booking values(${booking_id}, ${number_of_seats},'${timestamp}',${user_id},${show_id})`;
 
     connection.query(statement, (error, result)=>{
         if(error==null)
@@ -66,18 +61,12 @@ app.post("/", (request, response)=>{
 });
 
 app.put("/:booking_id", (request, response)=>{
-    var connection = mysql.createConnection(connectionDetails);
+    let connection = mysql.createConnection(connectionDetails);
 
-    var id = request.params.booking_id;
-    var noOfSeats = request.body.number_of_seats;
-    var timestampB = request.body.timestamp;
-    var userId = request.body.user_id;
-    var showId = request.body.show_id;
-    var seatNo = request.body.seat_no;    
+    let { booking_id, number_of_seats, timestamp, user_id, show_id} = request.body;   
 
-
-    var statement = 
-        `update booking set number_of_seats ='${noOfSeats}',timestamp='${timestampB}',user_id=${userId},show_id=${showId},seat_no=${seatNo} where booking_id=${id}`;
+    let statement = 
+        `update booking set number_of_seats ='${number_of_seats}',timestamp='${timestamp}',user_id=${user_id},show_id=${show_id} where booking_id=${booking_id}`;
     console.log(statement);
 
     connection.query(statement, (error, result)=>{
@@ -98,11 +87,11 @@ app.put("/:booking_id", (request, response)=>{
     })
 });
 app.delete("/:booking_id", (request, response)=>{
-    var connection = mysql.createConnection(connectionDetails);
+    let connection = mysql.createConnection(connectionDetails);
 
-    var id = request.params.booking_id;//This data belongs to header part 
+    let id = request.params.booking_id;//This data belongs to header part 
   
-    var statement = 
+    let statement = 
         `delete from booking where booking_id =${id}`;
 
     connection.query(statement, (error, result)=>{

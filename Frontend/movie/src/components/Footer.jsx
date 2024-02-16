@@ -10,19 +10,19 @@ function Footer() {
             <div className="footer-section">
                 <h3>Terms of Service</h3>
                 <div className="content">
-                    <p>Review our terms and conditions for using InterviewPreparationWebApp.</p>
+                    <p>Review terms and conditions for booking the Movie Ticket.</p>
                 </div>
             </div>
             <div className="footer-section">
                 <h3>Privacy Policy</h3>
                 <div className="content">
-                    <p>Understand how we collect, use, and protect your personal information.</p>
+                    <p>Application refers to Online Movie Ticket Booking, the software program provided by the Company.</p>
                 </div>
             </div>
             <div className="footer-section">
                 <h3>FAQ</h3>
                 <div className="content">
-                    <p>Find answers to commonly asked questions about InterviewPreparationWebApp and our services.</p>
+                    <p>For any additional queries or assistance, feel free to explore the app or contact our customer support team. Happy movie booking!</p>
                 </div>
             </div>
             
@@ -31,7 +31,7 @@ function Footer() {
           <hr/><hr/>
             <div className="footer-section">
               <hr/>
-                <h5>&copy; {new Date().getFullYear()} InterviewPreparationWebApp. All rights reserved.</h5>
+                <h5>&copy; {new Date().getFullYear()} OnlineMovieTicketBookingApp. All rights reserved.</h5>
             </div>
             </div>
         </div>
