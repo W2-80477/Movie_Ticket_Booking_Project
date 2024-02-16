@@ -1,9 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { Link } from 'react-router-dom'; 
-import "./home.css"
-// import animal from "./Image/animal.jpeg"
-// import hanuman from "./Image/hanuman.jpeg"
-// import salaar from "./Image/salaar.jpeg";
+import "./home.css";
 import landscapeAnimal from "./Image/landscapeAnimal.jpeg";
 import landscapeHanuman from "./Image/landscapeHanuman.jpeg";
 import landscapeSalaar from "./Image/landscapeSalaar.jpeg";
@@ -63,7 +60,7 @@ function Home() {
       <div className="row row-cols-1 row-cols-md-3 g-2">
         {movies.map((movie, index)=>( 
         <div className="col" key={index}>
-            <Link to={{ pathname: `/moviedetails/${movie.movie_id}`, state: { movie } }}>
+            <Link to={`/moviedetails/${movie.movie_id}`}>
           <div className="card card-with-fixed-height">
             <img src={movie.image} className="card-img-top" alt={movie.title} />
             <div className="card-body">
