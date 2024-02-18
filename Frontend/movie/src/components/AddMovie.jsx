@@ -97,6 +97,15 @@ function AddMovie() {
                     onChange={handleInputChange}
                   />
                 </p>
+                <p>
+                  Image:
+                  <input
+                    type="text"
+                    name="image"
+                    value={newMovie.image}
+                    onChange={handleInputChange}
+                  />
+                </p>
                 <button className="btn btn-primary" onClick={handleAddMovie}>
                   Add Movie
                 </button>
