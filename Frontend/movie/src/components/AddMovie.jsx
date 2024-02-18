@@ -49,7 +49,6 @@ function AddMovie() {
         {/* ... (your existing code) */}
         <div className="col-md-6">
           <div className="movie-add">
-            {/* ... (your existing code) */}
             <div className="movie-add">
               <div className="movie-info">
                 <h2>
