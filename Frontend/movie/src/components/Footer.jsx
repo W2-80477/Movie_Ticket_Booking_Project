@@ -19,6 +19,7 @@ function Footer() {
                     <p>Application refers to Online Movie Ticket Booking, the software program provided by the Company.</p>
                 </div>
             </div>
+            
             <div className="footer-section">
                 <h3>FAQ</h3>
                 <div className="content">

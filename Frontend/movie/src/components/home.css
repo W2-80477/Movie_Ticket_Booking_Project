@@ -7,7 +7,7 @@
   }
   
   .carousel-inner img {
-    height: 500px; /* Adjust the height as needed */
+    height: 500px;
     object-fit: cover;
   }
   
@@ -26,10 +26,7 @@
   .carousel-caption p {
     color: #ddd;
   }
-  
- /* Include the enhanced CSS code provided earlier */
 
-/* Additional styles for the cards */
 .card {
   margin-top: 4px;
   background-color: #f6e743;
@@ -43,8 +40,8 @@
 }
 
 .card-img-top {
-  height: 400px; 
-  object-fit: cover;
+  height: 250px; 
+  object-fit: fill;
   border-radius: 10px 10px 0 0;
 }
 
