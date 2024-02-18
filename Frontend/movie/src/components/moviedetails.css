@@ -16,6 +16,9 @@
   padding: 20px;
 }
 
+.movie-add {
+  padding: 1px;
+}
 .movie-details h2 {
   color: #333;
 }

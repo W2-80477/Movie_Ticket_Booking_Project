@@ -32,7 +32,7 @@ function Footer() {
           <hr/><hr/>
             <div className="footer-section">
               <hr/>
-                <h5>&copy; {new Date().getFullYear()} OnlineMovieTicketBookingApp. All rights reserved.</h5>
+                <h5>&copy; {new Date().getFullYear()} OnlineMovieTickets. All rights reserved.</h5>
             </div>
             </div>
         </div>

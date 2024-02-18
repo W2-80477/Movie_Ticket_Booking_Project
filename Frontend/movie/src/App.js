@@ -10,6 +10,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import MovieDetails from './components/MovieDetails';
 import Theaters from './components/Theaters';
+import HomeAdmin from './components/HomeAdmin';
+import AddMovie from './components/AddMovie';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/moviedetails/:movie_id" element={<MovieDetails />} />
           <Route path='/theaters' element={<Theaters/>}/>
+          <Route path='/adminhome' element={<HomeAdmin/>}/>
+          <Route path='/addmovie' element={<AddMovie/>}/>
         </Routes>
         <ToastContainer theme="dark" />
       </BrowserRouter>

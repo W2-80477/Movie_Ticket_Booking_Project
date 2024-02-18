@@ -52,31 +52,31 @@ app.get("/:movie_id", (request, response) => {
     });
   });
 
-// app.post("/", (request, response)=>{
-//     let connection = mysql.createConnection(connectionDetails);
+app.post("/", (request, response)=>{
+    let connection = mysql.createConnection(connectionDetails);
 
-//     let { movie_id, title, description, duration, language, release_date } = request.body;   
+    let { movie_id, title, description, duration, language, release_date } = request.body;   
     
-//     let statement = 
-//         `insert into movies values(${movie_id}, '${title}','${description}','${duration}','${language}','${release_date}')`;
+    let statement = 
+        `insert into movies values(${movie_id}, '${title}','${description}','${duration}','${language}','${release_date}')`;
 
-//     connection.query(statement, (error, result)=>{
-//         if(error==null)
-//         {
-//             response.setHeader("Content-Type", "application/json");
-//             response.write(JSON.stringify(result));
-//             connection.end();
-//             response.end();
-//         }
-//         else
-//         {
-//             response.setHeader("Content-Type", "application/json");
-//             response.write(JSON.stringify(error));
-//             connection.end();
-//             response.end();
-//         }
-//     })
-// });
+    connection.query(statement, (error, result)=>{
+        if(error==null)
+        {
+            response.setHeader("Content-Type", "application/json");
+            response.write(JSON.stringify(result));
+            connection.end();
+            response.end();
+        }
+        else
+        {
+            response.setHeader("Content-Type", "application/json");
+            response.write(JSON.stringify(error));
+            connection.end();
+            response.end();
+        }
+    })
+});
 
 // app.put("/:movie_id", (request, response)=>{
 //     let connection = mysql.createConnection(connectionDetails);

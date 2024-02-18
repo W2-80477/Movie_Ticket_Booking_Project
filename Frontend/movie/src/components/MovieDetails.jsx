@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import "./moviedetails.css"
 import { useParams, useNavigate } from 'react-router-dom';
 
-
 function MovieDetails() {
 
   const navigate = useNavigate();
@@ -36,8 +35,6 @@ function MovieDetails() {
  const handleBookNow =()=>{
     navigate("/theaters")
  }
-
-
 
   return (
     <div className='moviedetails'>
