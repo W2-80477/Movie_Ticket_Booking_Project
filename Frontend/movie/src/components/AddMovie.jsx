@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./moviedetails.css";
+import "./AddMovie.css";
 import { useNavigate } from 'react-router-dom';
 
 function AddMovie() {
@@ -44,7 +44,7 @@ function AddMovie() {
   };
 
   return (
-    <div className='moviedetails'>
+    <div className='movie-add'>
       <div className="container mt-5 movie-container">
         {/* ... (your existing code) */}
         <div className="col-md-6">
@@ -110,7 +110,6 @@ function AddMovie() {
                 </button>
               </div>
             </div>
-            {/* ... (your existing code) */}
           </div>
         </div>
       </div>
