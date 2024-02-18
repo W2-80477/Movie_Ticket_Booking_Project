@@ -44,6 +44,11 @@ INSERT INTO movies VALUES(DEFAULT, '12th Fail', 'It is based on the 2019 eponymo
 
 ALTER TABLE movies ADD image VARCHAR(150);
 
+UPDATE movies SET image = "https://www.filmibeat.com/fanimg/movie/20092/guntur-kaaram-photos-images-85551.jpg" WHERE movie_id = 2;
+UPDATE movies SET image = "https://upload.wikimedia.org/wikipedia/en/f/f2/12th_Fail_poster.jpeg" WHERE movie_id = 3;
+UPDATE movies SET image = "https://w0.peakpx.com/wallpaper/301/770/HD-wallpaper-black-joker-black-joker-smoke-dark-dark-joker-joker-laugh-joker-smoke-thumbnail.jpg" WHERE movie_id = 4;
+UPDATE movies SET image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSizEkhmc21nEM-wgnJ3SeFFa4OEdmBRNCVIQ&usqp=CAU" WHERE movie_id = 5;
+
 SELECT * FROM movies;
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------
