@@ -1,47 +1,44 @@
-/* Navbar Styles */
 .navbar {
-  background-color: #343a40; /* Navbar background color */
+  background-color: #343a40;
 }
 
 .navbar-brand {
-  color: #ffffff; /* Navbar brand color */
+  color: #ffffff;
   font-weight: bold;
 }
 
 .navbar-brand:hover {
-  color: #ffffff; /* Navbar brand color on hover */
+  color: #ffffff;
 }
 
 .navbar-toggler-icon {
-  background-color: #ffffff; /* Navbar toggle icon color */
+  background-color: #ffffff;
 }
 
 .navbar-nav .nav-link {
-  color: #ffffff; /* Navbar link color */
+  color: #ffffff;
   margin-right: 15px;
 }
 
 .navbar-nav .nav-link:hover {
-  color: #ffffff; /* Navbar link color on hover */
+  color: #ffffff;
 }
 
-/* Active Link Style */
 .nav-item.active .nav-link {
-  color: #28a745; /* Active link color */
+  color: #28a745;
 }
 
-/* Search Form Styling */
 .form-control {
   margin-right: 10px;
 }
 
 .btn-outline-success {
-  color: #28a745; /* Search button text color */
-  border-color: #28a745; /* Search button border color */
+  color: #28a745;
+  border-color: #28a745;
 }
 
 .btn-outline-success:hover {
-  background-color: #28a745; /* Search button background color on hover */
-  color: #ffffff; /* Search button text color on hover */
-  border-color: #28a745; /* Search button border color on hover */
+  background-color: #28a745;
+  color: #ffffff;
+  border-color: #28a745;
 }
