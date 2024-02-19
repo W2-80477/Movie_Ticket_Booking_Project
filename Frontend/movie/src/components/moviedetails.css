@@ -2,11 +2,11 @@
   display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
-    background-color: rgb(226, 92, 19);
+    height: 130vh;
+    background-color: rgb(25, 121, 49);
 }
 .movie-container {
-  background-color: #ffe70b;
+  background-color: #5abe84;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;

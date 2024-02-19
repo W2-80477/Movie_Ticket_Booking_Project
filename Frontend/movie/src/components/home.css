@@ -1,5 +1,5 @@
 .home{
-  background-color: rgb(226, 92, 19);
+  background-color: rgb(22, 95, 59);
 }
 
 #carouselExampleCaptions {
@@ -7,11 +7,12 @@
   }
   
   .carousel-inner img {
-    height: 500px;
+    height: 800px;
     object-fit: cover;
   }
   
   .carousel-caption {
+   
     background: rgba(0, 0, 0, 0.7);
     padding: 20px;
     border-radius: 5px;
@@ -29,7 +30,7 @@
 
 .card {
   margin-top: 4px;
-  background-color: #f6e743;
+  background-color: #66be8e;
   border: 1px solid #0e0d0d;
   transition: transform 0.3s ease;
   margin-bottom: 5px;

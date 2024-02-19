@@ -1,9 +1,9 @@
 import React,{useState,useEffect} from 'react'
 import { Link } from 'react-router-dom'; 
 import "./home.css";
-import landscapeAnimal from "./Image/landscapeAnimal.jpeg";
-import landscapeHanuman from "./Image/landscapeHanuman.jpeg";
-import landscapeSalaar from "./Image/landscapeSalaar.jpeg";
+import landscapeAnimal from "./Image/landscapeAnimal.jpg";
+import landscapeJoker from "./Image/landscapeJoker.jpg";
+import landscapeSalaar from "./Image/landscapeSalaar.jpg";
 
 function Home() {
   const [movies, setMovies] = useState([]);
@@ -35,22 +35,22 @@ function Home() {
           <div className="carousel-item active">
             <img src={landscapeAnimal} className="d-block w-100" alt="animal" />
             <div className="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p>
+              {/* <h5>First slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p> */}
             </div>
           </div>
           <div className="carousel-item">
-            <img src={landscapeHanuman} className="d-block w-100" alt="landscapeHanuman" />
+            <img src={landscapeJoker} className="d-block w-100" alt="landscapeJoker" />
             <div className="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p>
+              {/* <h5>Second slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p> */}
             </div>
           </div>
           <div className="carousel-item">
             <img src={landscapeSalaar} className="d-block w-100" alt="landscapeSalaar" />
             <div className="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>Some representative placeholder content for the third slide.</p>
+              {/* <h5>Third slide label</h5>
+              <p>Some representative placeholder content for the third slide.</p> */}
             </div>
           </div>
         </div>

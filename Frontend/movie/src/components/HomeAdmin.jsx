@@ -1,11 +1,11 @@
 import React,{useState,useEffect} from 'react'
 import { Link } from 'react-router-dom'; 
 import "./home.css";
-import landscapeAnimal from "./Image/landscapeAnimal.jpeg";
-import landscapeHanuman from "./Image/landscapeHanuman.jpeg";
-import landscapeSalaar from "./Image/landscapeSalaar.jpeg";
+import landscapeAnimal from "./Image/landscapeAnimal.jpg";
+import landscapeJoker from "./Image/landscapeJoker.jpg";
+import landscapeSalaar from "./Image/landscapeSalaar.jpg";
 
-function HomeAdmin() {
+function Home() {
   const [movies, setMovies] = useState([]);
   
 
@@ -35,42 +35,33 @@ function HomeAdmin() {
           <div className="carousel-item active">
             <img src={landscapeAnimal} className="d-block w-100" alt="animal" />
             <div className="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p>
+              {/* <h5>First slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p> */}
             </div>
           </div>
           <div className="carousel-item">
-            <img src={landscapeHanuman} className="d-block w-100" alt="landscapeHanuman" />
+            <img src={landscapeJoker} className="d-block w-100" alt="landscapeJoker" />
             <div className="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p>
+              {/* <h5>Second slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p> */}
             </div>
           </div>
           <div className="carousel-item">
             <img src={landscapeSalaar} className="d-block w-100" alt="landscapeSalaar" />
             <div className="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>Some representative placeholder content for the third slide.</p>
+              {/* <h5>Third slide label</h5>
+              <p>Some representative placeholder content for the third slide.</p> */}
             </div>
-
           </div>
-
         </div>
-        
       </div>
-      <div className="col-md-12 text-center">
-      <Link to="/addmovie">
-        <button type="button" className="btn btn-primary">Add Movie</button>
-      </Link>
-    </div>
       
 
       <div className="row row-cols-1 row-cols-md-3 g-2">
         {movies.map((movie, index)=>( 
         <div className="col" key={index}>
-            <Link to={`/addmovie/${movie.movie_id}`}>
+            <Link to={`/moviedetails/${movie.movie_id}`}>
           <div className="card card-with-fixed-height">
-
             <img src={movie.image} className="card-img-top" alt={movie.title} />
             <div className="card-body">
               <h5 className="card-title">{movie.title}</h5>             
@@ -80,7 +71,6 @@ function HomeAdmin() {
         </div>
          ))}
       </div>
-      
 
 
       </div>
@@ -88,4 +78,4 @@ function HomeAdmin() {
   )
 }
 
-export default HomeAdmin
+export default Home
