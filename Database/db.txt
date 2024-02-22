@@ -18,8 +18,6 @@ INSERT INTO users VALUES(DEFAULT, "Pravin", "Bawne", "1995-09-15", "7654567890",
 INSERT INTO users VALUES(DEFAULT, "Apurva", "Roy", "1997-11-22", "8234567890","apurva@gmail.com", "apurva@123", "user");
 INSERT INTO users VALUES(DEFAULT, "Satyam", "Kumar", "1999-10-25", "5657567845","satyam@gmail.com", "satyam@123", "user");
 INSERT INTO users VALUES(DEFAULT, "Ankit", "Sinha", "1998-06-18", "7654563465","ankit@gmail.com", "ankit@123", "user");
-INSERT INTO users VALUES(DEFAULT, "Anil", "Bawne", "1998-06-18", "7654563465","anil@gmail.com", "anil@123", "admin");
-
 
 ALTER TABLE users
 MODIFY COLUMN role ENUM('admin', 'user') DEFAULT 'user';

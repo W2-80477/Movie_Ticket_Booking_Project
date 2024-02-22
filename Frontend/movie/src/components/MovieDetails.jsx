@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import "./moviedetails.css"
 import { useParams, useNavigate } from 'react-router-dom';
+import { useAuth } from "./authenticates/AuthContext";
+
 
 function MovieDetails() {
 
   const navigate = useNavigate();
   const { movie_id } = useParams();
   const [movie, setMovie] = useState([]);
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     fetch(`http://localhost:4000/movies/${movie_id}`)
@@ -26,15 +29,23 @@ function MovieDetails() {
       .catch(error => console.error('Error fetching movie details:', error));
   }, [movie_id]);
 
+  
+  const handleBookNow = () => {
+    const storedUserDetails = localStorage.getItem("userDetails");
+
+    if (!isAuthenticated && !storedUserDetails) {
+      navigate('/signin');
+    } else {
+      navigate('/theaters');
+    }
+  };
+
+
 
   if (!movie) {
 
     return <div>Loading...</div>;
   }
- 
- const handleBookNow =()=>{
-    navigate("/theaters")
- }
 
   return (
     <div className='moviedetails'>
@@ -51,7 +62,7 @@ function MovieDetails() {
               </div>
             </div>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-5">
             <div className="movie-details">
               <h2>{movie.title}</h2>
               <p>Description: {movie.description}</p>
@@ -59,7 +70,7 @@ function MovieDetails() {
               <p>Language: {movie.language}</p>
               <p>Release Date: {movie.release_date}</p>
 
-              <button className="btn btn-primary btn-book-now" onClick={handleBookNow}>Book Now</button>
+              <button className="btn btn-success" onClick={handleBookNow}>Book Now</button>
             </div>
           </div>
         </div>

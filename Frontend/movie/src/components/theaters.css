@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(226, 92, 19);
+    background-color: antiquewhite;
     padding: 17.5px;
 }
 .theaters-container {
@@ -26,6 +26,7 @@
     border-radius: 8px;
     overflow: hidden;
     margin-bottom: 20px;
+    background-color:rgb(249, 213, 168);
   }
   
   .card-body {
@@ -72,6 +73,10 @@
     margin-bottom: 1rem;
   }
   
+  
   .react-datepicker {
     font-family: 'Arial', sans-serif;
-  }  
+  }
+  
+  
+  

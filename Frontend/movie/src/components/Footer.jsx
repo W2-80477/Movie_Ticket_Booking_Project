@@ -19,7 +19,6 @@ function Footer() {
                     <p>Application refers to Online Movie Ticket Booking, the software program provided by the Company.</p>
                 </div>
             </div>
-            
             <div className="footer-section">
                 <h3>FAQ</h3>
                 <div className="content">
@@ -32,7 +31,7 @@ function Footer() {
           <hr/><hr/>
             <div className="footer-section">
               <hr/>
-                <h5>&copy; {new Date().getFullYear()} OnlineMovieTickets. All rights reserved.</h5>
+                <h5>&copy; {new Date().getFullYear()} OnlineMovieTicketBookingApp. All rights reserved.</h5>
             </div>
             </div>
         </div>

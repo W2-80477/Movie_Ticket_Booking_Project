@@ -1,12 +1,14 @@
+
 .moviedetails{
   display: flex;
     justify-content: center;
     align-items: center;
-    height: 130vh;
-    background-color: rgb(25, 121, 49);
+    height: 100vh;
+    background-color: antiquewhite 
+    
 }
 .movie-container {
-  background-color: #5abe84;
+  background-color:rgb(249, 213, 168);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -16,9 +18,6 @@
   padding: 20px;
 }
 
-.movie-add {
-  padding: 1px;
-}
 .movie-details h2 {
   color: #333;
 }
@@ -28,16 +27,9 @@
 }
 
 .carousel-card img {
-  margin-top: 15px;
-  margin-left: 10px;
-  margin-right: 100%;
   width: 100%;
   border-radius: 10px;
-}
-
-.carousel-inner img {
-  height: 320px;
-  object-fit: fill;
+  opacity: 0.8;
 }
 
 .btn-book-now {
@@ -56,3 +48,34 @@
 .btn-book-now:hover {
   background-color: #0056b3;
 }
+
+.carousel-inner img {
+  height: 493px;
+  object-fit: fill;
+  height: 435px;
+}
+
+.col-md-6 {
+  flex: 0 0 auto;
+  width: 375px;
+}
+
+.col-md-5 {
+    flex: 0 0 auto;
+    width: 41.66666667%;
+    margin-left: 200px;
+}
+
+row {
+  display: flex;
+  flex-wrap: wrap;
+  height: 453px;
+}
+    
+
+
+/* .row {
+    display: flex;
+    flex-wrap: wrap;
+    height: 523px;
+} */

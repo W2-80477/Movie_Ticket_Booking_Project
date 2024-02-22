@@ -1,9 +1,9 @@
 import React,{useState,useEffect} from 'react'
 import { Link } from 'react-router-dom'; 
 import "./home.css";
-import landscapeAnimal from "./Image/landscapeAnimal.jpg";
-import landscapeJoker from "./Image/landscapeJoker.jpg";
-import landscapeSalaar from "./Image/landscapeSalaar.jpg";
+import AnimalLandscape from "./Image/AnimalLandscape.jpg";
+import idiot from "./Image/idiot.jpg";
+import anab from "./Image/anab.jpg";
 
 function Home() {
   const [movies, setMovies] = useState([]);
@@ -33,24 +33,21 @@ function Home() {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src={landscapeAnimal} className="d-block w-100" alt="animal" />
+            <img src={AnimalLandscape} className="d-block w-100" alt="animal" />
             <div className="carousel-caption d-none d-md-block">
-              {/* <h5>First slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p> */}
+             
             </div>
           </div>
           <div className="carousel-item">
-            <img src={landscapeJoker} className="d-block w-100" alt="landscapeJoker" />
+            <img src={anab} className="d-block w-100" alt="landscapeHanuman" />
             <div className="carousel-caption d-none d-md-block">
-              {/* <h5>Second slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p> */}
+             
             </div>
           </div>
           <div className="carousel-item">
-            <img src={landscapeSalaar} className="d-block w-100" alt="landscapeSalaar" />
+            <img src={idiot} className="d-block w-100" alt="landscapeSalaar" />
             <div className="carousel-caption d-none d-md-block">
-              {/* <h5>Third slide label</h5>
-              <p>Some representative placeholder content for the third slide.</p> */}
+            
             </div>
           </div>
         </div>
@@ -64,7 +61,10 @@ function Home() {
           <div className="card card-with-fixed-height">
             <img src={movie.image} className="card-img-top" alt={movie.title} />
             <div className="card-body">
-              <h5 className="card-title">{movie.title}</h5>             
+              <center>
+              <h5 className="card-title">{movie.title}</h5>
+              <p>Language: {movie.language}</p> 
+              </center>            
             </div>
           </div>
           </Link>

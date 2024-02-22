@@ -15,6 +15,42 @@ const notifyError=(msg)=>toast.error(msg);
 const notifySuccess=(msg)=>toast.success(msg);
 
 
+// const postData = () => {
+//   fetch("http://localhost:4000/login", {
+//     method: "post",
+//     headers: {
+//       "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify({
+//       email: email,
+//       password: password
+//     })
+//   })
+//     .then(res => {
+//       if (!res.ok) {
+//         throw new Error(`HTTP error! Status: ${res.status}`);
+//       }
+//       return res.json();
+//     })
+//     .then(data => {
+//       console.log(data);
+
+//       if (data.error) {
+//         notifyError(data.error);
+//       } else {
+//         notifySuccess(data.message);
+//         localStorage.setItem("jwt", data.token);
+//         localStorage.setItem("userDetails", (data.user_id));
+//         navigate("/")
+
+//       }
+//     })
+//     .catch(error => {
+//       console.error("Error during fetch:", error);
+//       notifyError("An error occurred during the login process.");
+//     });
+// };
+
 const postData = () => {
   fetch("http://localhost:4000/login", {
     method: "post",
@@ -39,9 +75,16 @@ const postData = () => {
         notifyError(data.error);
       } else {
         notifySuccess(data.message);
-        console.log(data);
-        localStorage.setItem("jwt", data.token);
-        navigate("/");
+
+        if (data.role === 'admin') {
+          localStorage.setItem("adminToken", data.token);
+          localStorage.setItem("userDetails", (data.user_id));
+          navigate('/adminhome');
+        } else {
+          localStorage.setItem("userToken", data.token);
+          localStorage.setItem("userDetails", (data.user_id));
+          navigate('/');
+        }
       }
     })
     .catch(error => {
@@ -51,12 +94,11 @@ const postData = () => {
 };
 
 
-
   return (
     <div className='signin'>
       <div className='from-container'>
         <div className='loginForm'>
-          
+          <h3>LogIn Here</h3>
           <div>
             <input type='email' 
             name='email' 
@@ -82,7 +124,7 @@ const postData = () => {
           <div className='loginform'>
             Don't have account ?
             <Link to='/signup'>
-              <span style={{color: "red", cursor:"pointer"}}> SignUp</span>
+              <span style={{color: "blue", cursor:"pointer"}}> SignUp</span>
             </Link>
 
           </div>

@@ -10,8 +10,16 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import MovieDetails from './components/MovieDetails';
 import Theaters from './components/Theaters';
-import HomeAdmin from './components/HomeAdmin';
-import AddMovie from './components/AddMovie';
+
+import Seats from './components/seats/Seats';
+import Final from './components/seats/Final';
+
+import Profile from './components/user/Profile';
+import EditAccount from './components/user/EditAccount';
+
+import AddMovie from './components/admin/AddMovie';
+import HomeAdmin from './components/admin/AdminHome';
+import EditMovie from './components/admin/EditMovie';
 
 function App() {
   return (
@@ -24,8 +32,13 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/moviedetails/:movie_id" element={<MovieDetails />} />
           <Route path='/theaters' element={<Theaters/>}/>
+          <Route path="/seats" element={<Seats />} />
+          <Route path="/Final/:selected/:totalprice" element={<Final />} />
+          <Route path='/profile/:user_id' element = {<Profile/>}/>
+          <Route path='/editAccount/:user_id' element = {<EditAccount/>}/>
           <Route path='/adminhome' element={<HomeAdmin/>}/>
           <Route path='/addmovie' element={<AddMovie/>}/>
+          <Route path='/editmovie/:movie_id' element={<EditMovie/>}/>
         </Routes>
         <ToastContainer theme="dark" />
       </BrowserRouter>
